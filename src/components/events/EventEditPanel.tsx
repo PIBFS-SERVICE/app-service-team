@@ -101,7 +101,7 @@ export function EventEditPanel({ event, onClose }: EventEditPanelProps) {
           </p>
           <div className="space-y-3">
             {event.shifts.map(shift => (
-              <ShiftEditor key={shift.id} shift={shift} allVolunteers={allVolunteers} />
+              <ShiftEditor key={shift.id} shift={shift} eventId={event.id} allVolunteers={allVolunteers} />
             ))}
           </div>
           {addingShift ? (

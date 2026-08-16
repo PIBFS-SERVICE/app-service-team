@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Plus, Trash2 } from 'lucide-react'
+import { Copy, Plus, Trash2 } from 'lucide-react'
 import type { Sector } from '@/types/database'
 import type { DraftShift, VolunteerForSelect } from '@/hooks/use-events'
 import { Button } from '@/components/ui/button'
@@ -15,9 +15,10 @@ interface DraftShiftPanelProps {
   sectors: Sector[]
   onChange: (updated: DraftShift) => void
   onRemove: () => void
+  onDuplicate: () => void
 }
 
-export function DraftShiftPanel({ shift, allVolunteers, sectors, onChange, onRemove }: DraftShiftPanelProps) {
+export function DraftShiftPanel({ shift, allVolunteers, sectors, onChange, onRemove, onDuplicate }: DraftShiftPanelProps) {
   const [addingScale, setAddingScale] = useState(false)
   const [editingScaleId, setEditingScaleId] = useState<string | null>(null)
 
@@ -47,6 +48,16 @@ export function DraftShiftPanel({ shift, allVolunteers, sectors, onChange, onRem
           />
         </div>
 
+        <Button
+          size="sm"
+          variant="ghost"
+          className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground mt-auto ml-auto"
+          onClick={onDuplicate}
+          aria-label="Duplicar turno"
+          title="Duplicar turno"
+        >
+          <Copy size={14} />
+        </Button>
         <Button
           size="sm"
           variant="ghost"

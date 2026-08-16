@@ -167,6 +167,19 @@ export function EventCreatePanel({ onClose, existingDates }: EventCreatePanelPro
                     setDraftShifts(prev => (prev ?? []).map(s => s._id === updated._id ? updated : s))
                   }
                   onRemove={() => setDraftShifts(prev => (prev ?? []).filter(s => s._id !== shift._id))}
+                  onDuplicate={() =>
+                    setDraftShifts(prev => {
+                      const list = prev ?? []
+                      const idx = list.findIndex(s => s._id === shift._id)
+                      if (idx === -1) return list
+                      const duplicated: DraftShift = {
+                        ...shift,
+                        _id: crypto.randomUUID(),
+                        scales: shift.scales.map(sc => ({ ...sc, _id: crypto.randomUUID() })),
+                      }
+                      return [...list.slice(0, idx + 1), duplicated, ...list.slice(idx + 1)]
+                    })
+                  }
                 />
               ))}
             </div>

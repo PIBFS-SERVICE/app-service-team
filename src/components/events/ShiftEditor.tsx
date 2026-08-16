@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import { Plus, Loader2, Trash2 } from 'lucide-react'
+import { Copy, Plus, Loader2, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase'
 import { useSectors } from '@/hooks/use-sectors'
@@ -14,16 +14,18 @@ import { ScaleForm } from './ScaleForm'
 
 interface ShiftEditorProps {
   shift: ShiftWithDetails
+  eventId: string
   allVolunteers: VolunteerForSelect[]
 }
 
-export function ShiftEditor({ shift, allVolunteers }: ShiftEditorProps) {
+export function ShiftEditor({ shift, eventId, allVolunteers }: ShiftEditorProps) {
   const queryClient = useQueryClient()
   const { data: sectors = [] } = useSectors()
   const [shiftTime, setShiftTime] = useState(shift.scheduled_time.slice(0, 5))
   const [leaderId, setLeaderId] = useState(shift.lider_id || '')
   const [savingShift, setSavingShift] = useState(false)
   const [deletingShift, setDeletingShift] = useState(false)
+  const [duplicatingShift, setDuplicatingShift] = useState(false)
   const [deletingScaleId, setDeletingScaleId] = useState<string | null>(null)
   const [editingScaleId, setEditingScaleId] = useState<string | null>(null)
   const [savingScaleId, setSavingScaleId] = useState<string | null>(null)
@@ -42,6 +44,36 @@ export function ShiftEditor({ shift, allVolunteers }: ShiftEditorProps) {
     setSavingShift(false)
     if (error) { toast.error(error.message); return }
     toast.success('Turno salvo.')
+    invalidateEvents(queryClient)
+  }
+
+  const handleDuplicateShift = async () => {
+    setDuplicatingShift(true)
+    const { data: newShift, error } = await supabase
+      .from('shifts')
+      .insert({
+        event_id: eventId,
+        scheduled_time: shift.scheduled_time,
+        lider_id: shift.lider_id,
+      })
+      .select('id')
+      .single()
+
+    if (error) { toast.error(error.message); setDuplicatingShift(false); return }
+
+    if (shift.scales.length > 0) {
+      const { error: scErr } = await supabase.from('scales').insert(
+        shift.scales.map(sc => ({
+          shift_id: newShift.id,
+          volunteer_id: sc.volunteer_id,
+          sector_id: sc.sector_id,
+        }))
+      )
+      if (scErr) toast.error(`Escalas: ${scErr.message}`)
+    }
+
+    setDuplicatingShift(false)
+    toast.success('Turno duplicado.')
     invalidateEvents(queryClient)
   }
 
@@ -119,6 +151,17 @@ export function ShiftEditor({ shift, allVolunteers }: ShiftEditorProps) {
         <Button size="sm" className="h-8 text-xs" onClick={handleSaveShift} disabled={savingShift}>
           {savingShift && <Loader2 size={12} className="animate-spin mr-1" />}
           Salvar turno
+        </Button>
+        <Button
+          size="sm"
+          variant="ghost"
+          className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground ml-auto"
+          onClick={handleDuplicateShift}
+          disabled={duplicatingShift}
+          aria-label="Duplicar turno"
+          title="Duplicar turno"
+        >
+          {duplicatingShift ? <Loader2 size={14} className="animate-spin" /> : <Copy size={14} />}
         </Button>
         <Button
           size="sm"
