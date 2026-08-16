@@ -1,0 +1,306 @@
+{
+  "id": "b00da9c9-89a3-48a4-8d78-83096f1ddd75",
+  "title": "Diagrama",
+  "product": "lucidchart",
+  "pages": [
+    {
+      "id": "0_0",
+      "title": "Página 1",
+      "index": 0,
+      "items": {
+        "shapes": [
+          {
+            "id": "KhdS54xYTS_7",
+            "class": "ERDEntityBlock3",
+            "textAreas": [
+              { "label": "Name", "text": "volunteers" },
+              { "label": "Field1", "text": "id" },
+              { "label": "Type1", "text": "uuid" },
+              { "label": "Field2", "text": "name" },
+              { "label": "Type2", "text": "text" },
+              { "label": "Field3", "text": "nickname" },
+              { "label": "Type3", "text": "text" },
+              { "label": "Field4", "text": "ministry_entry_date " },
+              { "label": "Type4", "text": "date" },
+              { "label": "Field5", "text": "contact_phone " },
+              { "label": "Type5", "text": "varchar" },
+              { "label": "Field6", "text": "avatar_url " },
+              { "label": "Type6", "text": "text" },
+              { "label": "Field7", "text": "updated_at" },
+              { "label": "Type7", "text": "timestamptz" },
+              { "label": "Field8", "text": "created_at" },
+              { "label": "Type8", "text": "timestamptz" }
+            ],
+            "customData": [],
+            "linkedData": [
+              {
+                "collectionId": null,
+                "data": [
+                  { "key": "SpreadsheetRowParentKey", "value": "ROW" },
+                  { "key": "SpreadsheetColumnParentKey", "value": "COLUMN" }
+                ],
+                "primaryKeyValue": "\"192d0e9f-2f5a-4032-9f03-59bbf1ea5891\""
+              }
+            ]
+          },
+          {
+            "id": "KhdSwkru_ajc",
+            "class": "ERDEntityBlock3",
+            "textAreas": [
+              { "label": "Name", "text": "event" },
+              { "label": "Field1", "text": "id" },
+              { "label": "Type1", "text": "uuid" },
+              { "label": "Field2", "text": "name" },
+              { "label": "Type2", "text": "text" },
+              { "label": "Field3", "text": "date" },
+              { "label": "Type3", "text": "date" },
+              { "label": "Field4", "text": "type" },
+              { "label": "Type4", "text": "text" },
+              { "label": "Field5", "text": "updated_at" },
+              { "label": "Type5", "text": "timestamptz" },
+              { "label": "Field6", "text": "created_at" },
+              { "label": "Type6", "text": "timestamptz" }
+            ],
+            "customData": [],
+            "linkedData": [
+              {
+                "collectionId": null,
+                "data": [
+                  { "key": "SpreadsheetRowParentKey", "value": "ROW" },
+                  { "key": "SpreadsheetColumnParentKey", "value": "COLUMN" }
+                ],
+                "primaryKeyValue": "\"192d0e9f-2f5a-4032-9f03-59bbf1ea5891\""
+              }
+            ]
+          },
+          {
+            "id": "KhdSGn371U7v",
+            "class": "ERDEntityBlock3",
+            "textAreas": [
+              { "label": "Name", "text": "scales" },
+              { "label": "Field1", "text": "id" },
+              { "label": "Type1", "text": "uuid" },
+              { "label": "Field2", "text": "shift_id" },
+              { "label": "Type2", "text": "uuid" },
+              { "label": "Field3", "text": "volunteer_id" },
+              { "label": "Type3", "text": "uuid" },
+              { "label": "Field4", "text": "sector_id" },
+              { "label": "Type4", "text": "uuid" },
+              { "label": "Field5", "text": "updated_at" },
+              { "label": "Type5", "text": "timestamptz" },
+              { "label": "Field6", "text": "created_at" },
+              { "label": "Type6", "text": "timestamptz" }
+            ],
+            "customData": [],
+            "linkedData": [
+              {
+                "collectionId": null,
+                "data": [
+                  { "key": "SpreadsheetRowParentKey", "value": "ROW" },
+                  { "key": "SpreadsheetColumnParentKey", "value": "COLUMN" }
+                ],
+                "primaryKeyValue": "\"192d0e9f-2f5a-4032-9f03-59bbf1ea5891\""
+              }
+            ]
+          },
+          {
+            "id": "KhdSU~HU.FxU",
+            "class": "ERDEntityBlock3",
+            "textAreas": [
+              { "label": "Name", "text": "volunteer_sectors" },
+              { "label": "Field1", "text": "id" },
+              { "label": "Type1", "text": "uuid" },
+              { "label": "Field2", "text": "volunteer_id" },
+              { "label": "Type2", "text": "uuid" },
+              { "label": "Field3", "text": "sector_id" },
+              { "label": "Type3", "text": "uuid" },
+              { "label": "Field4", "text": "active_in_area" },
+              { "label": "Type4", "text": "bool" },
+              { "label": "Field5", "text": "proficiency_status" },
+              { "label": "Type5", "text": "enum" },
+              { "label": "Field6", "text": "creat_at" },
+              { "label": "Type6", "text": "timestamptz" }
+            ],
+            "customData": [],
+            "linkedData": [
+              {
+                "collectionId": null,
+                "data": [
+                  { "key": "SpreadsheetRowParentKey", "value": "ROW" },
+                  { "key": "SpreadsheetColumnParentKey", "value": "COLUMN" }
+                ],
+                "primaryKeyValue": "\"192d0e9f-2f5a-4032-9f03-59bbf1ea5891\""
+              }
+            ]
+          },
+          {
+            "id": "KhdSvVfVVnfu",
+            "class": "ERDEntityBlock3",
+            "textAreas": [
+              { "label": "Name", "text": "sectors" },
+              { "label": "Field1", "text": "id" },
+              { "label": "Type1", "text": "uuid" },
+              { "label": "Field2", "text": "name" },
+              { "label": "Type2", "text": "text" },
+              { "label": "Field3", "text": "slug" },
+              { "label": "Type3", "text": "text" },
+              { "label": "Field4", "text": "url_icon_apprentice" },
+              { "label": "Type4", "text": "text" },
+              { "label": "Field5", "text": "url_icon_knowledgeable" },
+              { "label": "Type5", "text": "text" },
+              { "label": "Field6", "text": "url_icon_master" },
+              { "label": "Type6", "text": "text" }
+            ],
+            "customData": [],
+            "linkedData": [
+              {
+                "collectionId": null,
+                "data": [
+                  { "key": "SpreadsheetRowParentKey", "value": "ROW" },
+                  { "key": "SpreadsheetColumnParentKey", "value": "COLUMN" }
+                ],
+                "primaryKeyValue": "\"192d0e9f-2f5a-4032-9f03-59bbf1ea5891\""
+              }
+            ]
+          },
+          {
+            "id": "LndSFd3q6AwS",
+            "class": "ERDEntityBlock3",
+            "textAreas": [
+              { "label": "Name", "text": "shifts" },
+              { "label": "Field1", "text": "id" },
+              { "label": "Type1", "text": "uuid" },
+              { "label": "Field2", "text": "event_id" },
+              { "label": "Type2", "text": "uuid" },
+              { "label": "Field3", "text": "lider_id" },
+              { "label": "Type3", "text": "uuid" },
+              { "label": "Field4", "text": "scheduled_time" },
+              { "label": "Type4", "text": "hours" },
+              { "label": "Field5", "text": "updated_at" },
+              { "label": "Type5", "text": "timestamptz" },
+              { "label": "Field6", "text": "created_at" },
+              { "label": "Type6", "text": "timestamptz" }
+            ],
+            "customData": [],
+            "linkedData": [
+              {
+                "collectionId": null,
+                "data": [
+                  { "key": "SpreadsheetRowParentKey", "value": "ROW" },
+                  { "key": "SpreadsheetColumnParentKey", "value": "COLUMN" }
+                ],
+                "primaryKeyValue": "\"192d0e9f-2f5a-4032-9f03-59bbf1ea5891\""
+              }
+            ]
+          }
+        ],
+        "lines": [
+          {
+            "id": "wldS5_72yVev",
+            "endpoint1": {
+              "style": "CFN ERD One Arrow",
+              "connectedTo": "KhdS54xYTS_7"
+            },
+            "endpoint2": {
+              "style": "CFN ERD Many Arrow",
+              "connectedTo": "KhdSU~HU.FxU"
+            },
+            "textAreas": [],
+            "customData": [],
+            "linkedData": []
+          },
+          {
+            "id": "KldS3I9_0zHI",
+            "endpoint1": {
+              "style": "CFN ERD One Arrow",
+              "connectedTo": "KhdSvVfVVnfu"
+            },
+            "endpoint2": {
+              "style": "CFN ERD Many Arrow",
+              "connectedTo": "KhdSU~HU.FxU"
+            },
+            "textAreas": [],
+            "customData": [],
+            "linkedData": []
+          },
+          {
+            "id": "xsdS0WtKsCA8",
+            "endpoint1": {
+              "style": "CFN ERD One Arrow",
+              "connectedTo": "KhdS54xYTS_7"
+            },
+            "endpoint2": {
+              "style": "CFN ERD Many Arrow",
+              "connectedTo": "KhdSGn371U7v"
+            },
+            "textAreas": [],
+            "customData": [],
+            "linkedData": []
+          },
+          {
+            "id": "qtdS0-1ADpaS",
+            "endpoint1": {
+              "style": "CFN ERD One Arrow",
+              "connectedTo": "KhdSvVfVVnfu"
+            },
+            "endpoint2": {
+              "style": "CFN ERD Many Arrow",
+              "connectedTo": "KhdSGn371U7v"
+            },
+            "textAreas": [],
+            "customData": [],
+            "linkedData": []
+          },
+          {
+            "id": "OtdSWkRpej9Q",
+            "endpoint1": {
+              "style": "CFN ERD One Arrow",
+              "connectedTo": "LndSFd3q6AwS"
+            },
+            "endpoint2": {
+              "style": "CFN ERD Many Arrow",
+              "connectedTo": "KhdSGn371U7v"
+            },
+            "textAreas": [],
+            "customData": [],
+            "linkedData": []
+          },
+          {
+            "id": "7tdS0V-WkW.C",
+            "endpoint1": {
+              "style": "CFN ERD One Arrow",
+              "connectedTo": "KhdSwkru_ajc"
+            },
+            "endpoint2": {
+              "style": "CFN ERD Many Arrow",
+              "connectedTo": "LndSFd3q6AwS"
+            },
+            "textAreas": [],
+            "customData": [],
+            "linkedData": []
+          },
+          {
+            "id": "1wdSI93wH4T.",
+            "endpoint1": {
+              "style": "CFN ERD One Arrow",
+              "connectedTo": "KhdS54xYTS_7"
+            },
+            "endpoint2": {
+              "style": "CFN ERD Many Arrow",
+              "connectedTo": "LndSFd3q6AwS"
+            },
+            "textAreas": [],
+            "customData": [],
+            "linkedData": []
+          }
+        ],
+        "groups": [],
+        "layers": []
+      },
+      "customData": [],
+      "linkedData": []
+    }
+  ],
+  "data": { "collections": [] },
+  "accountId": 186062231
+}
